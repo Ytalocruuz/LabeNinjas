@@ -1,25 +1,61 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import HomePage from './pages/HomePages/HomePage';
+import JobsListPage from './pages/JobsListPage/JobListPage';
+import CreateJobPage from './pages/CreateJobPage/CreateJobPage';
+import CartPage from "./pages/CartPage/CartPage";
+import JobDetailPage from "./pages/JobDetailPage/JobDetailPage";
+import Header from "./components/Header/Header";
+import { createGlobalStyle } from "styled-components"
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+const GlobalStyle = createGlobalStyle`
+
+  body{
+  margin: 0;
+  padding: 0;
+  width: 100vw;
+  min-height: 100vh;
+  }
+`
+
+class App extends React.Component {
+
+  state = {
+    currentPage: "home"
+  }
+
+  changePage = (pageName) => {
+    this.setState({currentPage: pageName})
+
+  }
+
+  choosePage = () => {
+    switch (this.state.currentPage) {
+      case "home":
+        return <HomePage changePage={this.changePage} />
+      case "list":
+        return <JobsListPage />
+      case "form":
+        return <CreateJobPage />
+      case "cart":
+        return <CartPage />
+      case "defaul":
+        return <JobDetailPage />
+      default:
+        return <HomePage changePage={this.changePage} />
+    }
+  }
+
+  render() {
+    return (
+      <div>
+        <GlobalStyle />
+        <Header changePage={this.changePage} />
+        {this.choosePage()}
+      </div>
+    )
+  }
 }
 
-export default App;
+
+export default App
+

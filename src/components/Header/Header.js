@@ -1,0 +1,17 @@
+import React from "react";
+import { HeaderContainer } from "./styled";
+
+
+const Header = (props) =>  {
+    return (
+        <HeaderContainer>
+        <h2>LabeNinjas</h2>
+        <div>
+            <button onClick={ () => props.changePage("home")}>Home</button>
+            <button onClick={ () => props.changePage("cart")}>Carinho</button>
+        </div>
+        </HeaderContainer>
+    )
+}
+
+export default Header
