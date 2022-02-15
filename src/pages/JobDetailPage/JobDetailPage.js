@@ -5,7 +5,7 @@ class JobDetailPage extends React.Component {
     render() {
         return (
             <div>
-                JobDetailPage
+                JobDetailPage{this.props.jobId}
             </div>
         )
     }
