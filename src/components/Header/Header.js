@@ -1,14 +1,18 @@
 import React from "react";
-import { HeaderContainer } from "./styled";
-
+import { HeaderContainer, LogoHeade, OrganizationTitle} from "./styled";
+import Logo from "./../../img/LogoNinja.png"
+import { Button } from "@material-ui/core";
 
 const Header = (props) =>  {
     return (
         <HeaderContainer>
-        <h2>LabeNinjas</h2>
+            <OrganizationTitle>
+            <LogoHeade  src={Logo} alt="Logo Labe Ninja"/>
+            <h2>LabeNinjas</h2> 
+            </OrganizationTitle>
         <div>
-            <button onClick={ () => props.changePage("home")}>Home</button>
-            <button onClick={ () => props.changePage("cart")}>Carinho</button>
+            <Button variant="contained" color="primary" onClick={ () => props.changePage("home")}>Home</Button>
+            <Button variant="contained" color="primary" onClick={ () => props.changePage("cart")}>Carinho</Button>
         </div>
         </HeaderContainer>
     )

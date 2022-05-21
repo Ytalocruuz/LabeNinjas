@@ -5,17 +5,8 @@ import CreateJobPage from './pages/CreateJobPage/CreateJobPage';
 import CartPage from "./pages/CartPage/CartPage";
 import JobDetailPage from "./pages/JobDetailPage/JobDetailPage";
 import Header from "./components/Header/Header";
-import { createGlobalStyle } from "styled-components"
+import GlobalStyles from "./globalStyles/GlobalStyles";
 
-const GlobalStyle = createGlobalStyle`
-
-  body{
-  margin: 0;
-  padding: 0;
-  width: 100vw;
-  min-height: 100vh;
-  }
-`
 
 class App extends React.Component {
 
@@ -54,7 +45,7 @@ class App extends React.Component {
   render() {
     return (
       <div>
-        <GlobalStyle />
+        <GlobalStyles />
         <Header changePage={this.changePage} />
         {this.choosePage()}
       </div>
