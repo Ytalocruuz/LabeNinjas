@@ -1,28 +1,63 @@
-import React from "react";
-import HomePage from './pages/HomePages/HomePage';
-import JobsListPage from './pages/JobsListPage/JobListPage';
-import CreateJobPage from './pages/CreateJobPage/CreateJobPage';
-import CartPage from "./pages/CartPage/CartPage";
-import JobDetailPage from "./pages/JobDetailPage/JobDetailPage";
-import Header from "./components/Header/Header";
-import GlobalStyles from "./globalStyles/GlobalStyles";
+import React from "react"
+import HomePage from './pages/HomePage/HomePage'
+import JobsListPage from './pages/JobsListPage/JobsListPage'
+import CreateJobPage from './pages/CreateJobPage/CreateJobPage'
+import JobDetailPage from './pages/JobDetailPage/JobDetailPage'
+import CartPage from "./pages/CartPage/CartPage"
+import Header from "./components/Header/Header"
+import { createGlobalStyle } from 'styled-components'
 
+const GlobalStyle = createGlobalStyle`
+  body {
+    margin: 0;
+    padding: 0;
+    width: 100vw;
+    min-height: 100vh;
+  }
+  input {
+    width: 300px;
+    margin-bottom: 12px;
+  }
+  select {
+    width: 308px;
+    margin-bottom: 12px;
+  }
+`
 
 class App extends React.Component {
-
   state = {
     currentPage: "home",
-    jobDetailId: ""
+    jobDetailId: "",
+    cart: []
   }
 
   changePage = (pageName) => {
-    this.setState({currentPage: pageName})
-
+    this.setState({ currentPage: pageName })
   }
 
   goToDetailPage = (jobId) => {
     this.setState({currentPage: "detail", jobDetailId: jobId})
+  }
 
+  addToCart = (job) => {
+    const newCart = [...this.state.cart, job]
+    this.setState({cart: newCart})
+    alert(`O serviço ${job.title} foi adicionado ao carrinho`)
+  }
+
+  removeFromCart = (id) => {
+    const canDelete = window.confirm("Tem certeza que deseja remover este produto?")
+    if (canDelete){
+      const newCart = this.state.cart.filter((cartItem) => {
+        return cartItem.id !== id
+      })
+      this.setState({cart: newCart})
+    }
+  }
+
+  clearCart = () => {
+    this.setState({cart: []})
+    alert("Obrigada por comprar com a gente!")
   }
 
   choosePage = () => {
@@ -30,13 +65,13 @@ class App extends React.Component {
       case "home":
         return <HomePage changePage={this.changePage} />
       case "list":
-        return <JobsListPage goToDetailPage={this.goToDetailPage} />
+        return <JobsListPage addToCart={this.addToCart} goToDetailPage={this.goToDetailPage}/>
       case "form":
         return <CreateJobPage />
       case "cart":
-        return <CartPage />
-      case "defaul":
-        return <JobDetailPage jobI={this.state.jobDetailId}  />
+        return <CartPage changePage={this.changePage} cart={this.state.cart} removeFromCart={this.removeFromCart} clearCart={this.clearCart}/>
+      case "detail":
+        return <JobDetailPage jobId={this.state.jobDetailId} changePage={this.changePage}/>
       default:
         return <HomePage changePage={this.changePage} />
     }
@@ -45,7 +80,7 @@ class App extends React.Component {
   render() {
     return (
       <div>
-        <GlobalStyles />
+        <GlobalStyle />
         <Header changePage={this.changePage} />
         {this.choosePage()}
       </div>
@@ -53,6 +88,4 @@ class App extends React.Component {
   }
 }
 
-
 export default App
-
