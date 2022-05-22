@@ -7,7 +7,13 @@ import CartPage from "./pages/CartPage/CartPage"
 import Header from "./components/Header/Header"
 import { createGlobalStyle } from 'styled-components'
 
+
 const GlobalStyle = createGlobalStyle`
+
+  * {
+   font-family: 'Grape Nuts', cursive; ;
+  }
+  
   body {
     margin: 0;
     padding: 0;
@@ -23,6 +29,7 @@ const GlobalStyle = createGlobalStyle`
     margin-bottom: 12px;
   }
 `
+
 
 class App extends React.Component {
   state = {
@@ -83,6 +90,7 @@ class App extends React.Component {
         <GlobalStyle />
         <Header changePage={this.changePage} />
         {this.choosePage()}
+        
       </div>
     )
   }

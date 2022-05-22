@@ -1,16 +1,18 @@
 import React from "react"
 import {HomePageContainer} from "./styled"
+import Button from "@material-ui/core/Button"
+import Footer from "./../../components/Footer/Footer"
 
 class HomePage extends React.Component {
     render(){
         return(
             <HomePageContainer>
-                <h1>LabeNinjas</h1>
-                <h3>O talento certo no momento certo</h3>
+                <h2>O talento certo no momento certo</h2>
                 <div>
-                    <button onClick={() => this.props.changePage("form")}>Quero ser um Ninja</button>
-                    <button onClick={() => this.props.changePage("list")}>Contratar um Ninja</button>
+                    <Button variant="contained" onClick={() => this.props.changePage("form")}>Quero ser um Ninja</Button>
+                    <Button varient="contained" onClick={() => this.props.changePage("list")}>Contratar um Ninja</Button>
                 </div>
+                <Footer />
             </HomePageContainer>
         )
     }

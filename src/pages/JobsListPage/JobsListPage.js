@@ -11,7 +11,7 @@ class JobsListPage extends React.Component {
         minVal: "",
         maxVal: "",
         search: "",
-        order: "",
+        order: "Sem Ordenação",
     }
 
     componentDidMount() {
