@@ -4,6 +4,7 @@ import axios from "axios"
 import { BASE_URL, headers } from '../../constants/urls'
 import { JobsListContainer, FiltersContainer } from "./styled"
 
+
 class JobsListPage extends React.Component {
     state = {
         jobsList: [],
@@ -56,6 +57,8 @@ class JobsListPage extends React.Component {
             })
     }
 
+    
+
     filterJobs = () => {
         const maximum = this.state.maxVal ? Number(this.state.maxVal) : Infinity
         const minimum = this.state.minVal ? Number(this.state.minVal) : -Infinity
@@ -88,19 +91,21 @@ class JobsListPage extends React.Component {
         const jobComponents = this.state.filteredJobsList.map((job) => {
             return <JobCard key={job.id} job={job} goToDetailPage={this.props.goToDetailPage} addToCart={this.props.addToCart}/>
         })
-
+        
+        
         return (
             <div>
                 <FiltersContainer>
                     <input value={this.state.minVal} onChange={this.handleMinVal} placeholder="Valor Mínimo"/>
                     <input value={this.state.maxVal} onChange={this.handleMaxVal} placeholder="Valor Máximo"/>
                     <input value={this.state.search} onChange={this.handleSearch} placeholder="Busca por título ou descrição"/>
-                    <select value={this.state.order} onChange={this.handleOrder}>
-                        <option>Sem Ordenação</option>
-                        <option>Menor Valor</option>
-                        <option>Maior Valor</option>
-                        <option>Título</option>
-                        <option>Prazo</option>
+                    <select 
+                      value={this.state.order} onChange={this.handleOrder}>
+                        <option >Sem Ordenação</option>
+                        <option >Menor Valor</option>
+                        <option >Maior Valor</option>
+                        <option >Título</option>
+                        <option value={40}>Prazo</option>
                     </select>
                 </FiltersContainer>
 

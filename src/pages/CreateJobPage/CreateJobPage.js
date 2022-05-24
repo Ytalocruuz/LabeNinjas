@@ -2,6 +2,7 @@ import React from "react"
 import axios from "axios"
 import { CreateJobContainer } from "./styled"
 import { BASE_URL, headers } from '../../constants/urls'
+import Button from "@material-ui/core/Button"
 
 class CreateJobPage extends React.Component {
     state = {
@@ -73,7 +74,7 @@ class CreateJobPage extends React.Component {
                     <option>Pix</option>
                 </select>
                 <input value={this.state.dueDate} onChange={this.handleDueDate} placeholder="Prazo do Serviço" type="date" />
-                <button onClick={this.createJob}>Cadastrar Serviço</button>
+                <Button variant="contained" onClick={this.createJob}>Cadastrar Serviço</Button>
             </CreateJobContainer>
         )
     }

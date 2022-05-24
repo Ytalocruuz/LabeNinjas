@@ -6,11 +6,13 @@ export const Card = styled.div`
     color: white ;
     padding: 0 16px 16px 16px;
     margin: 12px;
+    border-radius: 10px;
 
     button{
     
      background-color: black ;
      color: white ;
+     border-radius: 5px ;
  
     }
 

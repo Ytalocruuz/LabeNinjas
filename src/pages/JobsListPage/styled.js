@@ -11,4 +11,24 @@ export const FiltersContainer = styled.div`
     flex-direction: row;
     justify-content: space-between;
     margin: 32px 24px 0 24px;
+
+    select{
+    background-color: white ;
+    color: #5D0F1F;
+    border-radius: 20px ;
+    border: 1px solid red;
+    font-size: 15px;
+    padding-right: 20px;
+    }
+
+    input{
+    background-color: white ;
+    color: #5D0F1F;
+    border-radius: 20px ;
+    border: 1px solid red;
+    font-size: 15px;
+    padding-right: 20px;
+    }
+
+    
 `

@@ -1,5 +1,8 @@
 import React from "react"
 import CartCard from '../../components/CartCard/CartCard';
+import { ContainerInformButton, CartValue, EmptyCart } from "./styled";
+import Button  from "@material-ui/core/Button";
+
 
 class CartPage extends React.Component {
     render() {
@@ -17,13 +20,17 @@ class CartPage extends React.Component {
             <div>
                 {cartComponents.length > 0 ? (
                     <div>
+                        <CartValue>
                         {cartComponents}
+                        </CartValue>
+                        <ContainerInformButton>
                         <span>Total: R${totalPrice.toFixed(2)}</span>
-                        <button onClick={() => this.props.clearCart()}>Finalizar Compra</button>
-                        <button onClick={() => this.props.changePage("list")}>Voltar para a Lista</button>
+                        <Button variant="contained" onClick={() => this.props.clearCart()}>Finalizar Compra</Button>
+                        <Button variant="contained" o onClick={() => this.props.changePage("list")}>Voltar para a Lista</Button>
+                        </ContainerInformButton>
                     </div>
                     ) : (
-                    <h1>Carrinho Vazio</h1>
+                   <EmptyCart> <h1>Carrinho Vazio</h1></EmptyCart>
                     )}
             </div>
         )

@@ -6,7 +6,7 @@ const CartCard = (props) => {
         <Card>
             <h3>{props.title}</h3>
             <p>R${props.price.toFixed(2)}</p>
-            <button onClick={() => props.removeFromCart(props.id)}>Remover</button>
+            <button onClick={() => props.removeFromCart(props.id)}>Remover do Carinho</button>
         </Card>
     )
 }
