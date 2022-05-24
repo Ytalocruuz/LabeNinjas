@@ -15,6 +15,8 @@ O LabeNinjas é um projeto que conecta prestadores de serviço e pessoas que pre
 
 ### LINK DO SITE
 
+https://radiant-narwhal-acc9cd.netlify.app/
+
 ### PRINTS
 
 ![printninja1](https://user-images.githubusercontent.com/72119120/169958223-c07da651-0d2b-48e4-a6f8-3fdcd25fc9bb.PNG)
