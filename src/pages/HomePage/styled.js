@@ -23,3 +23,12 @@ export const HomePageContainer = styled.div`
          ;
     }
 `
+
+export const ContainerButtonGap = styled.div`
+
+    display: flex ;
+    flex-direction: row ;
+    justify-content: space-between ;
+    gap: 10px;
+
+`
